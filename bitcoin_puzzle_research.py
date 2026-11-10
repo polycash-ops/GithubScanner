@@ -28,7 +28,7 @@ def b58decode(text: str) -> bytes:
             raise ValueError(f"invalid Base58 character: {char!r}")
         number = number * 58 + alphabet.index(char)
     raw = number.to_bytes((number.bit_length() + 7) // 8, "big") if number else b""
-    return b"\\x00" * (len(text) - len(text.lstrip("1"))) + raw
+    return b"\x00" * (len(text) - len(text.lstrip("1"))) + raw
 
 
 def decode_p2pkh_address(address: str) -> dict[str, str]:
