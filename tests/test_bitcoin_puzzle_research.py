@@ -9,7 +9,7 @@ class PuzzleResearchTests(unittest.TestCase):
     def test_target_address_and_hash160(self):
         decoded = decode_p2pkh_address(TARGET_ADDRESS)
         self.assertEqual(decoded["version"], "00")
-        self.assertEqual(len(decoded["hash160"]), 40)
+        self.assertEqual(decoded["hash160"], "f6f5431d25bbf7b12e8add9af5e3475c44a0a5b8")
 
     def test_rejects_bad_checksum(self):
         with self.assertRaises(ValueError):
